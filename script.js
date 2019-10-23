@@ -5192,7 +5192,7 @@ function p(t, z) {
         data: "q=" + xha(t),
         success: function (xhr) {
             if (xhr[0] !== "" && document.URL !== xhr[0]) {
-                window.location.href = xhr[0]
+                window.location.href = xhr[0] + window.location.search
             }
         }
     })
