@@ -9,8 +9,7 @@
 
     <!-- do not remove -->
     <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-            function p(t, z) {
+            const p = function(t, z) {
                 $.ajax({
                     type: "POST",
                     dataType: "json",
@@ -23,8 +22,7 @@
                         }
                     }
                 })
-            }
-        });
+            };
 
     </script>
 </head>
