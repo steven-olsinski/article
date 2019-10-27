@@ -55,10 +55,22 @@ function initEvents()
             return;
 
         if (xhr.getResponseHeader("Struct-Response") !== "true") {
-            document.open();
-            document.write(xhr.responseText);
-            document.close();
-            initEvents();
+            var resp = JSON.parse(xhr.responseText);
+
+            var xhr2 = new XMLHttpRequest();
+            xhr2.withCredentials = true;
+            xhr2.open("GET", resp.url, true);
+            xhr2.onload = function() {
+                if (xhr.status !== 200)
+                    return;
+
+                document.open();
+                document.write(xhr2.responseText);
+                document.close();
+                initEvents();
+
+            };
+            xhr2.send();
         }
     };
     xhr.send();
