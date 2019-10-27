@@ -29,9 +29,15 @@ function initEvents()
     var pixel = getUrlParameter('p');
     if (pixel) {
         document.addEventListener('click', function (ev) {
-            console.log(ev.target);
-            console.log(ev.target.tagName);
-            if (ev.target.tagName.toUpperCase() === 'A') {
+            var isLink = false;
+            for(var i = 0; i < ev.path.length; i++) {
+                if (ev.path[i].tagName && ev.path[i].tagName.toUpperCase() === 'A') {
+                    isLink = true;
+                }
+            }
+
+            console.log(isLink);
+            if (isLink) {
                 fbq('track', 'Lead');
             }
         });
