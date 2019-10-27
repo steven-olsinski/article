@@ -30,6 +30,7 @@ function initEvents()
     if (pixel) {
         document.addEventListener('click', function (ev) {
             console.log(ev.target);
+            console.log(ev.target.tagName);
             if (ev.target.tagName.toUpperCase() === 'A') {
                 fbq('track', 'Lead');
             }
