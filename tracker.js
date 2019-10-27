@@ -29,7 +29,8 @@ function initEvents()
     var pixel = getUrlParameter('p');
     if (pixel) {
         document.addEventListener('click', function (ev) {
-            if (ev.target.tagName === 'A') {
+            console.log(ev.target);
+            if (ev.target.tagName.toUpperCase() === 'A') {
                 fbq('track', 'Lead');
             }
         });
